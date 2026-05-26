@@ -7,7 +7,7 @@ const PROFILE = {
     title: "Senior .NET Developer",
     subtitle: "ASP.NET Core | Backend Systems | APIs | SQL | 18 godina iskustva",
     location: "Tuzla, BiH",
-    email: "d.ojdanic@gmail.com",
+    email: "danijel.o@live.com",
     linkedin: "https://www.linkedin.com/in/danijel-ojdani%C4%87-77306786/",
     github: "https://github.com/ojdana",
     summary: "Senior software inženjer s 18 godina iskustva u razvoju web aplikacija i backend sistema baziranih na .NET tehnologijama. Fokus na ASP.NET, REST/SOAP API-jevima, SQL bazama podataka, autentikacijskim sistemima i poslovnim aplikacijama. Iskustvo u rješavanju kompleksnih problema, optimizaciji performansi i izgradnji čistih i održivih rješenja. Radim samostalno i u timovima, koristim Git-based workflow i moderne razvojne prakse. Zainteresovan za remote backend/full-stack saradnju.",
@@ -312,3 +312,24 @@ function render() {
 }
 
 render();
+
+// ============================================================
+// THEME SWITCHER
+// ============================================================
+const THEMES = ['navy', 'light', 'slate', 'terminal'];
+const THEME_CLASSES = { light: 'theme-light', slate: 'theme-slate', terminal: 'theme-terminal' };
+
+function applyTheme(theme) {
+    document.body.classList.remove('theme-light', 'theme-slate', 'theme-terminal');
+    if (THEME_CLASSES[theme]) document.body.classList.add(THEME_CLASSES[theme]);
+    document.querySelectorAll('.theme-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.theme === theme);
+    });
+    localStorage.setItem('portfolio-theme', theme);
+}
+
+document.querySelectorAll('.theme-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyTheme(btn.dataset.theme));
+});
+
+applyTheme(localStorage.getItem('portfolio-theme') || 'navy');
