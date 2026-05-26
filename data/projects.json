@@ -1,0 +1,76 @@
+[
+  {
+    "id": "itineris-web",
+    "title": "ItinerisWEB — CMS/BPM/ERP platforma",
+    "category": "ERP / Javni sektor",
+    "description": "Kompleksna poslovna platforma za institucije javne uprave. Sadrži 14+ aktivnih modula uključujući fakturisanje, ugovore, djelovodni protokol, budžet, DMS i AI Help.",
+    "highlights": [
+      "BPM workflow engine koji koordinira sve poslovne procese",
+      "14+ integriranih modula (KUF, UGO, PIS, BDG, DMS, CIPS...)",
+      "AI-asistiran sistem pomoći s integracijom DeepSeek/Gemini/Groq modela",
+      "Višetematski UI (9 tema, dark/light, Navy 2026 dizajn sistem)"
+    ],
+    "tech": ["C#", "ASP.NET MVC", "SQL Server", "JavaScript", "Bootstrap", "DevExpress"],
+    "type": "commercial",
+    "link": null
+  },
+  {
+    "id": "egradjani-portal",
+    "title": "e-Gradjanin portal — Grad Gradiška",
+    "category": "E-uprava / Portal",
+    "description": "Samouslužni online portal za građane Grada Gradiška. Omogućava podnošenje zahtjeva, praćenje statusa i preuzimanje dokumenata bez dolaska u šalter.",
+    "highlights": [
+      "94 vrste usluga dostupne online",
+      "265+ zahtjeva podneseno u produkciji",
+      "Integracija s internim sistemima institucije",
+      "Responzivni dizajn za mobilne uređaje"
+    ],
+    "tech": ["HTML", "CSS", "JavaScript", "SQL Server", "Azure SQL"],
+    "type": "commercial",
+    "link": null
+  },
+  {
+    "id": "coreapi-adminportal",
+    "title": "CoreAPI + AdminPortal (migracija)",
+    "category": "Modernizacija / React",
+    "description": "Migracija legacy ASP.NET MVC sistema na moderni stack. Backend: ASP.NET Core .NET 9 s JWT auth i Hangfire. Frontend: React 18 + TypeScript + DevExtreme + Vite.",
+    "highlights": [
+      "REST API s JWT autentikacijom i Swagger dokumentacijom",
+      "Modularni React frontend s TypeScript type safety",
+      "Postepena migracija modul po modul (ItinerisWEB ostaje u produkciji)",
+      "EF Core + isti SQL Server kao legacy sistem"
+    ],
+    "tech": ["ASP.NET Core .NET 9", "C#", "React 18", "TypeScript", "Entity Framework Core", "Vite", "JWT"],
+    "type": "commercial",
+    "link": null
+  },
+  {
+    "id": "spinsoft-erp",
+    "title": "Spinsoft ERP — Maloprodajni sistem",
+    "category": "ERP / Maloprodaja",
+    "description": "Sveobuhvatni ERP sistem za maloprodajne lance u BiH. 23 modula pokrivaju fakturisanje, POS, logistiku, DMS, loyalty programe i web integracije s dobavljačima.",
+    "highlights": [
+      "POS sistemi s loyalty programima (gorivo, bonusi)",
+      "Web integracije s Bingo i Zvorničanka maloprodajnim lancima",
+      "Logistika i prenosi robe između poslovnica",
+      "Samostalna kasa i Vaga integracije"
+    ],
+    "tech": ["C#", "SQL Server", "JavaScript", "HTML", "CSS"],
+    "type": "commercial",
+    "link": null
+  },
+  {
+    "id": "pro-nalozi",
+    "title": "PRO_NALOZI — Štamparija",
+    "category": "Privatni projekat",
+    "description": "Sistem za kreiranje i praćenje radnih naloga u štampariji. Privatni projekat razvijen kao freelance rješenje.",
+    "highlights": [
+      "Kreiranje i praćenje radnih naloga",
+      "BPM workflow za statuse naloga",
+      "Izvještavanje i pregled"
+    ],
+    "tech": ["C#", "ASP.NET MVC", "SQL Server", "JavaScript"],
+    "type": "freelance",
+    "link": null
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "category": "Backend",
+    "icon": "⚙️",
+    "skills": [
+      { "name": "C#", "level": 5 },
+      { "name": "ASP.NET MVC", "level": 5 },
+      { "name": "ASP.NET Core (.NET 9)", "level": 4 },
+      { "name": "Entity Framework Core", "level": 4 },
+      { "name": "REST API dizajn", "level": 4 }
+    ]
+  },
+  {
+    "category": "Baze podataka",
+    "icon": "🗄️",
+    "skills": [
+      { "name": "SQL Server (T-SQL)", "level": 5 },
+      { "name": "Stored procedure & views", "level": 5 },
+      { "name": "Optimizacija upita", "level": 4 },
+      { "name": "Azure SQL", "level": 3 }
+    ]
+  },
+  {
+    "category": "Frontend",
+    "icon": "🎨",
+    "skills": [
+      { "name": "JavaScript / jQuery", "level": 5 },
+      { "name": "HTML5 / CSS3", "level": 5 },
+      { "name": "Bootstrap", "level": 5 },
+      { "name": "React 18", "level": 3 },
+      { "name": "TypeScript", "level": 3 }
+    ]
+  },
+  {
+    "category": "ERP & BPM",
+    "icon": "🏗️",
+    "skills": [
+      { "name": "BPM workflow dizajn", "level": 5 },
+      { "name": "ERP arhitektura", "level": 5 },
+      { "name": "Fakturisanje sistemi", "level": 5 },
+      { "name": "POS integracije", "level": 4 },
+      { "name": "DMS (document management)", "level": 4 }
+    ]
+  },
+  {
+    "category": "Alati & DevOps",
+    "icon": "🛠️",
+    "skills": [
+      { "name": "Git / GitHub", "level": 4 },
+      { "name": "Visual Studio", "level": 5 },
+      { "name": "Playwright (E2E testovi)", "level": 4 },
+      { "name": "Azure WebJobs", "level": 3 },
+      { "name": "DevExpress", "level": 4 }
+    ]
+  }
+]

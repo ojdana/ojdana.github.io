@@ -1,0 +1,44 @@
+[
+  {
+    "id": "itineris",
+    "company": "Itineris d.o.o.",
+    "role": "Senior Software Developer",
+    "period": "2019 — danas",
+    "location": "Gradiška, BiH",
+    "current": true,
+    "description": "Razvoj i održavanje kompleksnog CMS/BPM/ERP sistema za institucije javne uprave. Rad na 14+ aktivnih modula.",
+    "highlights": [
+      "Dizajn i implementacija BPM workflow enginea koji koordinira sve poslovne module",
+      "Razvoj modula za fakturisanje (KUF), ugovore (UGO), protokol (PIS), budžet (BDG)",
+      "Izgradnja e-Gradjanin portala za Grad Gradiška — samouslužni sistem za 94 vrste usluga",
+      "Implementacija sistema upravljanja dokumentima (DMS) s bulk preuzimanjem i ZIP streamingom",
+      "Dashboard i izvještaji s DevExpress komponentama i custom SQL procedurama",
+      "Playwright automatizovani testovi za kritične workflows (fakturisanje, knjiženje)",
+      "Migracija na moderni stack: ASP.NET Core .NET 9 + React 18 + TypeScript + DevExtreme"
+    ],
+    "tech": ["C#", "ASP.NET MVC", "ASP.NET Core", "SQL Server", "JavaScript", "jQuery", "Bootstrap", "DevExpress", "React", "TypeScript", "Azure", "Entity Framework Core", "Playwright"]
+  },
+  {
+    "id": "spinsoft",
+    "company": "Spinsoft d.o.o.",
+    "role": "Software Developer",
+    "period": "20?? — 2019",
+    "location": "BiH",
+    "current": false,
+    "description": "Razvoj ERP sistema za maloprodaju i veleprodaju. Rad na 23 modula za klijente kao što su Bingo i Zvorničanka.",
+    "highlights": [
+      "Fakturisanje — kompletan fakturni modul za maloprodajne lance",
+      "POS sistemi — bonusi, gorivo, loyalty programi (SpinKlub, ServisPOS)",
+      "Logistika i upravljanje robom — praćenje robe, prenosi između poslovnica",
+      "Stalna sredstva i sitan inventar — evidencija i upravljanje imovinom",
+      "SpinDMS — sistem za upravljanje dokumentima",
+      "CRM i Plan i Ugovori — upravljanje odnosima s klijentima",
+      "Web integracije s dobavljačima (Bingo, Zvorničanka) i principalima",
+      "Nekretnine (Tehnograd), Drin lijekovi — specijalizovani industrijski moduli",
+      "Samostalna kasa i Vaga — integrisani sistemi za prodajna mjesta",
+      "GTM, SpinERV — interni poslovni alati",
+      "Robno-mjesečni izvještaj poslovanja s grafičkim prikazima"
+    ],
+    "tech": ["C#", "SQL Server", "JavaScript", "HTML", "CSS"]
+  }
+]
