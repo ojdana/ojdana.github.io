@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danijel Ojdanić — Bold</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0c0c0c;--text:#f5f5f5;--muted:#888;--acc:#e8ff00;--acc2:#ff6b35;
+  --border:rgba(255,255,255,0.08);--card:#151515;
+  --font:'Segoe UI',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:16px;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+/* VERSION BAR */
+.version-bar{background:#111;border-bottom:1px solid var(--border);padding:10px 0;text-align:center;position:sticky;top:0;z-index:200}
+.version-bar a{color:#555;font-size:0.78rem;padding:5px 14px;border-radius:4px;transition:.2s;display:inline-block}
+.version-bar a:hover{color:#fff}
+.version-bar a.active{background:var(--acc);color:#000;font-weight:800}
+
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:24px 60px;border-bottom:1px solid var(--border)}
+.nav-logo{font-size:1.3rem;font-weight:900;letter-spacing:-1px}
+.nav-logo span{color:var(--acc)}
+.nav-right{display:flex;gap:32px;align-items:center}
+.nav-right a{font-size:0.85rem;color:var(--muted);transition:.2s}
+.nav-right a:hover{color:#fff}
+.nav-cta{background:var(--acc)!important;color:#000!important;padding:10px 24px;border-radius:4px;font-weight:800;font-size:0.85rem!important}
+
+/* HERO */
+.hero{padding:80px 60px 60px;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero-num{font-size:0.75rem;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.hero-num::after{content:'';flex:0 0 80px;height:1px;background:var(--border)}
+.hero-name{font-size:clamp(4rem,10vw,9rem);font-weight:900;line-height:.95;letter-spacing:-4px;text-transform:uppercase;margin-bottom:0}
+.hero-name-acc{color:var(--acc)}
+.hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;margin-top:40px;flex-wrap:wrap;gap:24px}
+.hero-desc{max-width:480px}
+.hero-role{font-size:1.1rem;color:var(--muted);margin-bottom:20px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-solid{background:var(--acc);color:#000;padding:14px 32px;font-weight:800;font-size:0.9rem;border-radius:4px;transition:.15s;display:inline-block}
+.btn-solid:hover{background:#d4eb00}
+.btn-ghost{border:1.5px solid rgba(255,255,255,0.2);color:#fff;padding:13px 30px;font-size:0.9rem;border-radius:4px;transition:.15s;display:inline-block}
+.btn-ghost:hover{border-color:#fff}
+.hero-stats{display:flex;gap:40px}
+.hs{text-align:right}
+.hs-n{font-size:2.5rem;font-weight:900;color:var(--acc);line-height:1;display:block}
+.hs-l{font-size:0.72rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted)}
+.avail-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(232,255,0,0.3);padding:8px 16px;border-radius:100px;font-size:0.8rem;color:var(--acc);margin-bottom:16px}
+.avail-dot{width:6px;height:6px;border-radius:50%;background:var(--acc);animation:glow 2s infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 6px var(--acc)}50%{box-shadow:none}}
+
+/* SECTION WRAPPER */
+.sec{padding:72px 60px;border-bottom:1px solid var(--border)}
+.sec-header{display:flex;align-items:baseline;gap:20px;margin-bottom:56px}
+.sec-num{font-size:0.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--muted);min-width:24px}
+.sec-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;letter-spacing:-1.5px;text-transform:uppercase}
+.sec-line{flex:1;height:1px;background:var(--border);margin-bottom:5px}
+
+/* EXPERIENCE — horizontal cards */
+.exp-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.exp-col{background:var(--card);padding:32px;transition:.2s}
+.exp-col:hover{background:#1a1a1a}
+.exp-tag{font-size:0.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:16px}
+.exp-co{font-size:1.3rem;font-weight:900;margin-bottom:4px;letter-spacing:-0.5px}
+.exp-role{color:var(--acc);font-size:0.85rem;font-weight:700;margin-bottom:4px}
+.exp-per{font-size:0.78rem;color:var(--muted);margin-bottom:20px}
+.exp-ul{list-style:none}
+.exp-ul li{font-size:0.84rem;color:#aaa;padding:4px 0 4px 14px;position:relative;border-bottom:1px solid rgba(255,255,255,0.04)}
+.exp-ul li:last-child{border:none}
+.exp-ul li::before{content:'';position:absolute;left:0;top:12px;width:5px;height:1px;background:var(--acc)}
+.exp-tech{display:flex;flex-wrap:wrap;gap:5px;margin-top:16px}
+.etag{font-size:0.71rem;border:1px solid var(--border);color:var(--muted);padding:2px 8px;border-radius:3px}
+
+/* PROJECTS — horizontal scroll */
+.proj-scroll-wrap{overflow-x:auto;margin:0 -60px;padding:0 60px 24px;-ms-overflow-style:none;scrollbar-width:none}
+.proj-scroll-wrap::-webkit-scrollbar{display:none}
+.proj-scroll{display:flex;gap:20px;width:max-content}
+.proj-card{width:320px;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:28px;display:flex;flex-direction:column;transition:.2s;flex-shrink:0}
+.proj-card:hover{border-color:rgba(232,255,0,0.4);transform:translateY(-4px)}
+.proj-num{font-size:3.5rem;font-weight:900;color:rgba(255,255,255,0.05);line-height:1;margin-bottom:12px;font-variant-numeric:tabular-nums}
+.proj-cat{font-size:0.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:6px}
+.proj-name{font-size:1.05rem;font-weight:800;margin-bottom:10px;letter-spacing:-0.3px}
+.proj-desc{font-size:0.85rem;color:#777;flex:1;margin-bottom:16px}
+.fl-badge{display:inline-block;background:rgba(232,255,0,0.12);color:var(--acc);border:1px solid rgba(232,255,0,0.3);font-size:0.68rem;padding:2px 8px;border-radius:3px;font-weight:800;margin-left:8px}
+.proj-tags{display:flex;flex-wrap:wrap;gap:5px}
+.ptag{font-size:0.72rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:#666;padding:2px 8px;border-radius:3px}
+.scroll-hint{font-size:0.75rem;color:var(--muted);margin-top:8px;letter-spacing:2px;text-transform:uppercase}
+
+/* SKILLS */
+.skills-wrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.skill-col{background:var(--card);padding:28px}
+.skill-cat{font-size:0.7rem;text-transform:uppercase;letter-spacing:3px;color:var(--muted);margin-bottom:16px}
+.skill-item{margin-bottom:10px}
+.skill-name{font-size:0.88rem;color:#ccc;display:flex;justify-content:space-between;margin-bottom:5px}
+.skill-bar-wrap{height:2px;background:rgba(255,255,255,0.06);border-radius:1px}
+.skill-bar-fill{height:2px;background:var(--acc);border-radius:1px}
+
+/* EDUCATION */
+.edu-big{border:1px solid var(--border);border-radius:8px;padding:40px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;background:var(--card)}
+.edu-left{}
+.edu-period-big{font-size:5rem;font-weight:900;color:rgba(255,255,255,0.04);line-height:1;letter-spacing:-4px;margin-bottom:12px}
+.edu-school-big{font-size:1.5rem;font-weight:900;letter-spacing:-0.5px;margin-bottom:6px}
+.edu-deg-big{color:var(--muted);font-size:0.95rem}
+.edu-badge{background:var(--acc);color:#000;padding:8px 20px;border-radius:4px;font-weight:800;font-size:0.85rem;white-space:nowrap}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.contact-cell{background:var(--card);padding:32px;transition:.2s}
+.contact-cell:hover{background:#1a1a1a}
+.c-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:8px}
+.c-value{font-size:1.1rem;font-weight:700;color:var(--text)}
+.c-value a:hover{color:var(--acc)}
+
+/* FOOTER */
+footer{padding:32px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer p{font-size:0.8rem;color:#555}
+
+@media(max-width:768px){
+  nav,.hero,.sec,footer{padding-left:24px;padding-right:24px}
+  .hero-name{letter-spacing:-2px}
+  .contact-grid{grid-template-columns:1fr}
+  .proj-scroll-wrap{margin:0 -24px;padding:0 24px 16px}
+}
+</style>
+</head>
+<body>
+
+<div class="version-bar">
+  <a href="index.html">V1 · Navy Dark</a>
+  <a href="index-v2.html">V2 · Minimalist</a>
+  <a href="index-v3.html">V3 · Sidebar</a>
+  <a href="index-v4.html" class="active">V4 · Bold</a>
+</div>
+
+<nav>
+  <span class="nav-logo">D<span>.</span>O</span>
+  <div class="nav-right">
+    <a href="#experience">Iskustvo</a>
+    <a href="#projects">Projekti</a>
+    <a href="#skills">Vještine</a>
+    <a href="#contact" class="nav-cta">Kontakt</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-num">Portfolio <span id="h-year"></span></div>
+  <h1 class="hero-name">
+    <span>Danijel</span><br>
+    <span class="hero-name-acc">Ojdanić</span>
+  </h1>
+  <div class="hero-bottom">
+    <div class="hero-desc">
+      <div class="avail-badge"><span class="avail-dot"></span> Dostupan za freelance</div>
+      <p class="hero-role">Senior .NET Developer · ASP.NET Core · Backend · SQL · 18 god.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-solid">Kontaktiraj me</a>
+        <a href="#projects" class="btn-ghost">Pogledaj projekte ↓</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><span class="hs-n">18</span><span class="hs-l">God. iskustva</span></div>
+      <div class="hs"><span class="hs-n">30+</span><span class="hs-l">Modula</span></div>
+      <div class="hs"><span class="hs-n">3</span><span class="hs-l">Kompanije</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ISKUSTVO -->
+<section class="sec" id="experience">
+  <div class="sec-header">
+    <span class="sec-num">01</span>
+    <span class="sec-title">Iskustvo</span>
+    <span class="sec-line"></span>
+  </div>
+  <div class="exp-row" id="exp-row"></div>
+</section>
+
+<!-- PROJEKTI -->
+<section class="sec" id="projects">
+  <div class="sec-header">
+    <span class="sec-num">02</span>
+    <span class="sec-title">Projekti</span>
+    <span class="sec-line"></span>
+  </div>
+  <div class="proj-scroll-wrap">
+    <div class="proj-scroll" id="proj-scroll"></div>
+  </div>
+  <p class="scroll-hint">← scroll →</p>
+</section>
+
+<!-- VJEŠTINE -->
+<section class="sec" id="skills">
+  <div class="sec-header">
+    <span class="sec-num">03</span>
+    <span class="sec-title">Vještine</span>
+    <span class="sec-line"></span>
+  </div>
+  <div class="skills-wrap" id="skills-wrap"></div>
+</section>
+
+<!-- OBRAZOVANJE -->
+<section class="sec" id="education">
+  <div class="sec-header">
+    <span class="sec-num">04</span>
+    <span class="sec-title">Obrazovanje</span>
+    <span class="sec-line"></span>
+  </div>
+  <div class="edu-big">
+    <div class="edu-left">
+      <div class="edu-period-big">2002–09</div>
+      <div class="edu-school-big">Elektrotehnički fakultet</div>
+      <div class="edu-deg-big">Diplomirani inženjer elektrotehnike — Informatika</div>
+    </div>
+    <div class="edu-badge">Univerzitetska diploma</div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="sec" id="contact">
+  <div class="sec-header">
+    <span class="sec-num">05</span>
+    <span class="sec-title">Kontakt</span>
+    <span class="sec-line"></span>
+  </div>
+  <div class="contact-grid" id="contact-grid"></div>
+</section>
+
+<footer>
+  <p id="footer-copy"></p>
+  <p>Tuzla, BiH · Dostupan za remote</p>
+</footer>
+
+<script>
+const EXP=[{co:"Itineris doo Tuzla",role:"Senior Software Engineer",period:"2022 — danas",hi:["Fakturisanje, budžet, ugovori — BPM workflow","Loan Lead Management za mikrokreditne institucije","Citizen portal — 94 e-usluge, Grad Gradiška","Migracija: ASP.NET Core .NET 9 + React 18 + TypeScript"],tech:["C#","ASP.NET Core","SQL Server","React","TypeScript","DevExpress"]},{co:"Spin doo Tuzla",role:"Senior Software Engineer",period:"2018 — 2022",hi:["POS kasa, stalna sredstva, logistika","Loyalty club, SOAP/REST servisi","Web dobavljači: Bingo, Zvorničanka"],tech:["C#","SQL Server","JavaScript","SOAP","REST"]},{co:"Partner MKF",role:"Programmer / DBA",period:"2009 — 2018",hi:["Oracle DBA — redundancija, sigurnost, performanse","ASP.NET poslovne aplikacije","Analiza procesa i kreiranje rješenja"],tech:["Oracle","PL/SQL","ASP.NET","C#"]}];
+const PROJ=[{name:"ItinerisWEB",cat:"ERP · Javni sektor",fl:false,desc:"14+ modula, BPM workflow engine, AI Help sistem",tech:["C#","ASP.NET MVC","SQL Server","DevExpress"]},{name:"e-Gradjanin portal",cat:"E-uprava",fl:false,desc:"Samouslužni sistem — 94 e-usluge za Grad Gradiška",tech:["HTML","CSS","JavaScript","Azure SQL"]},{name:"CoreAPI + AdminPortal",cat:"Modernizacija",fl:false,desc:"ASP.NET Core .NET 9 + React 18 + TypeScript + Vite",tech:["ASP.NET Core","React","TypeScript","JWT"]},{name:"Spinsoft ERP",cat:"ERP · Maloprodaja",fl:false,desc:"23 modula: POS, logistika, loyalty, web integracije",tech:["C#","SQL Server","JavaScript"]},{name:"BalegemCMS",cat:"Desktop ERP",fl:true,desc:"Gradilište, Magacin, Proizvodnja, TIM, Izvještaji",tech:["C#","WinForms","DevExpress","SQL Server"]},{name:"PRO_NALOZI",cat:"Privatni",fl:true,desc:"Radni nalozi štamparije s BPM praćenjem statusa",tech:["C#","ASP.NET MVC","SQL Server"]}];
+const SK=[{cat:"Backend",items:[["C#",5],["ASP.NET MVC",5],["ASP.NET Core",4],["EF Core",4],["REST API",4]]},{cat:"Baze",items:[["SQL Server",5],["T-SQL",5],["Oracle",4],["Azure SQL",3]]},{cat:"Frontend",items:[["JavaScript",5],["HTML5/CSS3",5],["Bootstrap",5],["React",3],["TypeScript",3]]},{cat:"ERP & BPM",items:[["BPM Workflow",5],["ERP Arhitektura",5],["Fakturisanje",5],["POS",4]]},{cat:"Alati",items:[["Visual Studio",5],["Git",4],["DevExpress",4],["Playwright",4]]}];
+
+document.getElementById('h-year').textContent=new Date().getFullYear();
+document.getElementById('footer-copy').textContent=`© ${new Date().getFullYear()} Danijel Ojdanić`;
+
+document.getElementById('exp-row').innerHTML=EXP.map(e=>`<div class="exp-col"><div class="exp-tag">${e.period}</div><div class="exp-co">${e.co}</div><div class="exp-role">${e.role}</div><ul class="exp-ul">${e.hi.map(h=>`<li>${h}</li>`).join('')}</ul><div class="exp-tech">${e.tech.map(t=>`<span class="etag">${t}</span>`).join('')}</div></div>`).join('');
+
+document.getElementById('proj-scroll').innerHTML=PROJ.map((p,i)=>`<div class="proj-card"><div class="proj-num">${String(i+1).padStart(2,'0')}</div><div class="proj-cat">${p.cat}${p.fl?'<span class="fl-badge">Freelance</span>':''}</div><div class="proj-name">${p.name}</div><p class="proj-desc">${p.desc}</p><div class="proj-tags">${p.tech.map(t=>`<span class="ptag">${t}</span>`).join('')}</div></div>`).join('');
+
+document.getElementById('skills-wrap').innerHTML=SK.map(s=>`<div class="skill-col"><div class="skill-cat">${s.cat}</div>${s.items.map(([n,l])=>`<div class="skill-item"><div class="skill-name"><span>${n}</span></div><div class="skill-bar-wrap"><div class="skill-bar-fill" style="width:${l*20}%"></div></div></div>`).join('')}</div>`).join('');
+
+document.getElementById('contact-grid').innerHTML=`<div class="contact-cell"><div class="c-label">Email</div><div class="c-value"><a href="mailto:danijel.o@live.com">danijel.o@live.com</a></div></div><div class="contact-cell"><div class="c-label">LinkedIn</div><div class="c-value"><a href="https://www.linkedin.com/in/danijel-ojdani%C4%87-77306786/" target="_blank">linkedin.com/in/danijel-ojdanić</a></div></div><div class="contact-cell"><div class="c-label">GitHub</div><div class="c-value"><a href="https://github.com/ojdana" target="_blank">github.com/ojdana</a></div></div><div class="contact-cell"><div class="c-label">Lokacija</div><div class="c-value">Tuzla, BiH · Remote OK</div></div>`;
+</script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danijel Ojdanić — Sidebar</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sb:#0f172a;--sb2:#1e293b;--sb-text:#e2e8f0;--sb-muted:#64748b;
+  --acc:#38bdf8;--acc2:#34d399;
+  --bg:#f8fafc;--text:#1e293b;--muted:#64748b;--card:#fff;--border:#e2e8f0;
+  --font:'Segoe UI',system-ui,sans-serif;--radius:10px;
+}
+html,body{height:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;display:flex;flex-direction:column}
+
+/* VERSION BAR */
+.version-bar{background:#0f172a;padding:8px 0;text-align:center;flex-shrink:0}
+.version-bar a{color:#64748b;font-size:0.78rem;padding:5px 12px;border-radius:4px;transition:.2s;display:inline-block}
+.version-bar a:hover{color:#fff;text-decoration:none}
+.version-bar a.active{background:#38bdf8;color:#0f172a;font-weight:700}
+
+/* LAYOUT */
+.layout{display:flex;flex:1;min-height:0}
+
+/* SIDEBAR */
+.sidebar{width:280px;min-width:280px;background:var(--sb);display:flex;flex-direction:column;position:sticky;top:32px;height:calc(100vh - 32px);overflow-y:auto;padding:40px 28px}
+.sb-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--sb2),var(--acc));display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:900;color:#fff;margin-bottom:20px;letter-spacing:-2px;flex-shrink:0}
+.sb-name{font-size:1.25rem;font-weight:800;color:#fff;margin-bottom:4px}
+.sb-title{font-size:0.78rem;color:var(--acc);margin-bottom:4px;line-height:1.4}
+.sb-loc{font-size:0.75rem;color:var(--sb-muted);margin-bottom:28px}
+.sb-avail{display:flex;align-items:center;gap:6px;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.3);padding:8px 12px;border-radius:6px;margin-bottom:28px}
+.sb-dot{width:7px;height:7px;border-radius:50%;background:var(--acc2);animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.sb-avail-text{font-size:0.75rem;color:var(--acc2);font-weight:600}
+.sb-nav{margin-bottom:auto}
+.sb-nav a{display:flex;align-items:center;gap:10px;color:var(--sb-muted);padding:9px 12px;border-radius:6px;font-size:0.88rem;font-weight:500;transition:.2s;text-decoration:none;margin-bottom:2px}
+.sb-nav a:hover,.sb-nav a.active{background:rgba(255,255,255,0.07);color:#fff}
+.sb-nav a .icon{font-size:1rem;width:18px;text-align:center}
+.sb-divider{border:none;border-top:1px solid var(--sb2);margin:20px 0}
+.sb-contact a{display:flex;align-items:center;gap:8px;color:var(--sb-muted);font-size:0.8rem;padding:6px 0;transition:.2s;text-decoration:none}
+.sb-contact a:hover{color:var(--acc)}
+.sb-contact .icon{font-size:0.9rem;width:16px}
+.sb-year{font-size:0.72rem;color:var(--sb2);margin-top:24px}
+
+/* MAIN CONTENT */
+.main{flex:1;overflow-y:auto;padding:48px 48px 48px 48px}
+.section{max-width:820px;margin-bottom:64px}
+.section-head{display:flex;align-items:baseline;gap:16px;margin-bottom:32px}
+.section-title{font-size:1.4rem;font-weight:800;color:var(--text)}
+.section-line{flex:1;height:1px;background:var(--border)}
+
+/* ABOUT */
+.about-p{color:#475569;font-size:0.97rem;max-width:680px;margin-bottom:12px}
+.stats-row{display:flex;gap:24px;flex-wrap:wrap;margin-top:24px}
+.stat-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 24px;text-align:center}
+.stat-n{font-size:1.8rem;font-weight:900;color:var(--acc);display:block;line-height:1}
+.stat-l{font-size:0.75rem;color:var(--muted);margin-top:4px}
+
+/* EXPERIENCE */
+.exp-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px;display:grid;grid-template-columns:3px 1fr;gap:0 20px}
+.exp-bar{border-radius:3px;background:linear-gradient(180deg,var(--acc),var(--acc2));align-self:stretch}
+.exp-body{}
+.exp-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:4px;flex-wrap:wrap}
+.exp-co{font-weight:800;font-size:1rem;color:var(--text)}
+.exp-per{font-size:0.78rem;background:#f1f5f9;color:var(--muted);padding:3px 10px;border-radius:10px;white-space:nowrap}
+.exp-role{color:#059669;font-weight:600;font-size:0.88rem;margin-bottom:10px}
+.exp-ul{list-style:none}
+.exp-ul li{font-size:0.85rem;color:#475569;padding:2px 0 2px 14px;position:relative}
+.exp-ul li::before{content:'▸';position:absolute;left:0;color:var(--acc);font-size:0.75rem}
+.exp-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}
+.tag{font-size:0.73rem;background:#f1f5f9;border:1px solid var(--border);color:#64748b;padding:2px 8px;border-radius:4px}
+
+/* PROJECTS - 2 col grid */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;transition:.2s}
+.proj-card:hover{border-color:var(--acc);box-shadow:0 4px 20px rgba(56,189,248,.1)}
+.proj-cat{font-size:0.72rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:6px}
+.proj-name{font-weight:800;color:var(--text);margin-bottom:8px}
+.proj-desc{font-size:0.85rem;color:#64748b;flex:1;margin-bottom:12px}
+.proj-fl{display:inline-block;font-size:0.7rem;background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0;padding:2px 7px;border-radius:8px;font-weight:700;margin-left:6px}
+
+/* SKILLS - table style */
+.skill-table{width:100%;border-collapse:collapse}
+.skill-table tr{border-bottom:1px solid var(--border)}
+.skill-table td{padding:10px 0;vertical-align:middle}
+.skill-table td:first-child{font-size:0.85rem;color:var(--muted);font-weight:600;width:140px;text-transform:uppercase;letter-spacing:1px;font-size:0.75rem}
+.skill-pills{display:flex;flex-wrap:wrap;gap:6px}
+.spill{font-size:0.8rem;background:#fff;border:1.5px solid var(--border);color:var(--text);padding:4px 12px;border-radius:100px;font-weight:500}
+.spill.hi{border-color:#94a3b8;font-weight:700}
+
+/* EDUCATION */
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;display:flex;align-items:center;gap:20px}
+.edu-ico{font-size:2rem;background:#f1f5f9;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.edu-school{font-weight:800;color:var(--text)}
+.edu-deg{font-size:0.88rem;color:var(--muted);margin-top:4px}
+.edu-per{font-size:0.8rem;color:var(--acc);font-weight:600;margin-left:auto;white-space:nowrap}
+
+@media(max-width:768px){
+  .layout{flex-direction:column}
+  .sidebar{width:100%;height:auto;position:static;flex-direction:row;flex-wrap:wrap;gap:16px;padding:24px}
+  .main{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<div class="version-bar">
+  <a href="index.html">V1 · Navy Dark</a>
+  <a href="index-v2.html">V2 · Minimalist</a>
+  <a href="index-v3.html" class="active">V3 · Sidebar</a>
+  <a href="index-v4.html">V4 · Bold</a>
+</div>
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sb-avatar">DO</div>
+  <div class="sb-name" id="sb-name"></div>
+  <div class="sb-title" id="sb-title"></div>
+  <div class="sb-loc">📍 Tuzla, BiH</div>
+  <div class="sb-avail"><span class="sb-dot"></span><span class="sb-avail-text">Dostupan za freelance</span></div>
+
+  <nav class="sb-nav">
+    <a href="#about"><span class="icon">👤</span> O meni</a>
+    <a href="#experience"><span class="icon">💼</span> Iskustvo</a>
+    <a href="#projects"><span class="icon">🏗</span> Projekti</a>
+    <a href="#skills"><span class="icon">⚙️</span> Vještine</a>
+    <a href="#education"><span class="icon">🎓</span> Obrazovanje</a>
+  </nav>
+
+  <hr class="sb-divider">
+
+  <div class="sb-contact" id="sb-contact"></div>
+  <div class="sb-year" id="sb-year"></div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+  <div class="section" id="about">
+    <div class="section-head"><span class="section-title">O meni</span><span class="section-line"></span></div>
+    <p class="about-p" id="about-p"></p>
+    <div class="stats-row">
+      <div class="stat-box"><span class="stat-n">18</span><div class="stat-l">godina iskustva</div></div>
+      <div class="stat-box"><span class="stat-n">3</span><div class="stat-l">kompanije</div></div>
+      <div class="stat-box"><span class="stat-n">30+</span><div class="stat-l">modula</div></div>
+      <div class="stat-box"><span class="stat-n">94</span><div class="stat-l">e-usluge</div></div>
+    </div>
+  </div>
+
+  <div class="section" id="experience">
+    <div class="section-head"><span class="section-title">Radno iskustvo</span><span class="section-line"></span></div>
+    <div id="exp-list"></div>
+  </div>
+
+  <div class="section" id="projects">
+    <div class="section-head"><span class="section-title">Projekti</span><span class="section-line"></span></div>
+    <div class="proj-grid" id="proj-grid"></div>
+  </div>
+
+  <div class="section" id="skills">
+    <div class="section-head"><span class="section-title">Vještine</span><span class="section-line"></span></div>
+    <table class="skill-table" id="skill-table"></table>
+  </div>
+
+  <div class="section" id="education">
+    <div class="section-head"><span class="section-title">Obrazovanje</span><span class="section-line"></span></div>
+    <div id="edu-block"></div>
+  </div>
+
+</main>
+</div>
+
+<script>
+const P={name:"Danijel Ojdanić",title:"Senior .NET Developer",subtitle:"ASP.NET Core · Backend · APIs · SQL",email:"danijel.o@live.com",linkedin:"https://www.linkedin.com/in/danijel-ojdani%C4%87-77306786/",github:"https://github.com/ojdana",summary:"Senior software inženjer s 18 godina iskustva u razvoju web aplikacija i backend sistema baziranih na .NET tehnologijama. Fokus na ASP.NET, REST/SOAP API-jevima, SQL bazama podataka i poslovnim aplikacijama. Iskustvo u rješavanju kompleksnih problema i izgradnji čistih i održivih rješenja."};
+const EXP=[{co:"Itineris doo Tuzla",role:"Senior Software Engineer",period:"Sep 2022 — danas",hi:["Fakturisanje, budžet, ugovori — BPM workflow sistemi","Loan Lead Management za mikrokreditne institucije","Citizen portal — 94 e-usluge za Grad Gradiška","Migracija: ASP.NET Core .NET 9 + React 18 + TypeScript"],tech:["C#","ASP.NET Core","SQL Server","JavaScript","React","TypeScript","DevExpress"]},{co:"Spin doo Tuzla",role:"Senior Software Engineer",period:"Sep 2018 — Sep 2022",hi:["POS kasa, stalna sredstva, transportna logistika","Loyalty club, SOAP/REST servisi za integracije","Web dobavljači: Bingo, Zvorničanka"],tech:["C#","SQL Server","JavaScript","HTML","CSS","SOAP","REST"]},{co:"Partner MKF",role:"Programmer / DBA",period:"Feb 2009 — Aug 2018",hi:["Oracle DBA — redundancija, sigurnost, performanse","ASP.NET web aplikacije za poslovne procese","Analiza i kreiranje softverskih rješenja"],tech:["Oracle","PL/SQL","ASP.NET","C#","JavaScript"]}];
+const PROJ=[{name:"ItinerisWEB",cat:"ERP · Javni sektor",desc:"14+ modula, BPM engine, AI Help sistem",fl:false,tech:["C#","ASP.NET MVC","SQL Server","DevExpress"]},{name:"e-Gradjanin portal",cat:"E-uprava",desc:"Samouslužni portal za 94 e-usluge Grada Gradiška",fl:false,tech:["HTML","CSS","JS","Azure SQL"]},{name:"CoreAPI + AdminPortal",cat:"Modernizacija",desc:"ASP.NET Core .NET 9 + React 18 + TypeScript + Vite",fl:false,tech:["ASP.NET Core","React","TypeScript","JWT"]},{name:"Spinsoft ERP",cat:"ERP · Maloprodaja",desc:"23 modula: POS, logistika, loyalty, web integracije",fl:false,tech:["C#","SQL Server","JS"]},{name:"BalegemCMS",cat:"Desktop ERP · Građevinarstvo",desc:"Gradilište, Magacin, Proizvodnja, TIM, Izvještaji",fl:true,tech:["C#","WinForms","DevExpress","SQL Server"]},{name:"PRO_NALOZI",cat:"Privatni projekat",desc:"Radni nalozi štamparije, BPM workflow",fl:true,tech:["C#","ASP.NET MVC","SQL Server"]}];
+const SK=[{cat:"Backend",hi:["C#","ASP.NET MVC","ASP.NET Core"],no:["Entity Framework Core","REST API","SOAP"]},{cat:"Baze",hi:["SQL Server","T-SQL","Oracle"],no:["PL/SQL","Azure SQL","EF Core"]},{cat:"Frontend",hi:["JavaScript","jQuery","HTML5","CSS3"],no:["Bootstrap","React 18","TypeScript"]},{cat:"ERP & BPM",hi:["BPM workflow","ERP arhitektura","Fakturisanje"],no:["POS","DMS","Loyalty"]},{cat:"Alati",hi:["Visual Studio","Git","SSMS"],no:["DevExpress","Playwright","Azure","Vite"]}];
+
+document.getElementById('sb-name').textContent=P.name;
+document.getElementById('sb-title').textContent=P.subtitle;
+document.getElementById('sb-contact').innerHTML=`<a href="mailto:${P.email}"><span class="icon">✉</span>${P.email}</a><a href="${P.linkedin}" target="_blank"><span class="icon">in</span>LinkedIn profil</a><a href="${P.github}" target="_blank"><span class="icon">⌥</span>GitHub</a>`;
+document.getElementById('sb-year').textContent=`© ${new Date().getFullYear()} Danijel Ojdanić`;
+document.getElementById('about-p').textContent=P.summary;
+document.getElementById('exp-list').innerHTML=EXP.map(e=>`<div class="exp-card"><div class="exp-bar"></div><div class="exp-body"><div class="exp-top"><span class="exp-co">${e.co}</span><span class="exp-per">${e.period}</span></div><div class="exp-role">${e.role}</div><ul class="exp-ul">${e.hi.map(h=>`<li>${h}</li>`).join('')}</ul><div class="exp-tags">${e.tech.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div></div>`).join('');
+document.getElementById('proj-grid').innerHTML=PROJ.map(p=>`<div class="proj-card"><div class="proj-cat">${p.cat}${p.fl?'<span class="proj-fl">Freelance</span>':''}</div><div class="proj-name">${p.name}</div><p class="proj-desc">${p.desc}</p><div class="exp-tags">${p.tech.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div>`).join('');
+document.getElementById('skill-table').innerHTML=SK.map(s=>`<tr><td>${s.cat}</td><td><div class="skill-pills">${s.hi.map(t=>`<span class="spill hi">${t}</span>`).join('')}${s.no.map(t=>`<span class="spill">${t}</span>`).join('')}</div></td></tr>`).join('');
+document.getElementById('edu-block').innerHTML=`<div class="edu-card"><div class="edu-ico">🎓</div><div><div class="edu-school">Elektrotehnički fakultet</div><div class="edu-deg">Diplomirani inženjer elektrotehnike — Informatika</div></div><span class="edu-per">2002 — 2009</span></div>`;
+</script>
+</body>
+</html>

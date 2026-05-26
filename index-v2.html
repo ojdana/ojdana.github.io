@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danijel Ojdanić — Minimalist</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fafafa;--text:#111;--muted:#777;--accent:#2563eb;--accent2:#059669;
+  --line:#e5e5e5;--font:'Segoe UI',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;font-size:17px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* VERSION SWITCHER */
+.version-bar{background:#111;padding:10px 0;text-align:center;position:sticky;top:0;z-index:100}
+.version-bar a{color:#aaa;font-size:0.8rem;padding:6px 14px;border-radius:4px;transition:.2s;display:inline-block}
+.version-bar a:hover{color:#fff;text-decoration:none}
+.version-bar a.active{background:#2563eb;color:#fff}
+
+/* HERO */
+.hero{max-width:760px;margin:0 auto;padding:80px 24px 60px}
+.hero-tag{font-size:0.8rem;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
+h1{font-size:clamp(2.8rem,7vw,5rem);font-weight:800;line-height:1.05;color:#111;margin-bottom:16px;letter-spacing:-2px}
+h1 span{color:var(--accent)}
+.hero-role{font-size:1.15rem;color:var(--muted);margin-bottom:32px;max-width:500px}
+.hero-links{display:flex;gap:12px;flex-wrap:wrap}
+.hero-link{font-size:0.9rem;font-weight:600;color:var(--text);border-bottom:2px solid var(--accent);padding-bottom:2px;transition:.2s}
+.hero-link:hover{color:var(--accent);text-decoration:none}
+
+/* SECTIONS */
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+section{border-top:1px solid var(--line);padding:64px 0}
+.s-label{font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:32px;font-weight:700}
+h2{font-size:2rem;font-weight:800;letter-spacing:-1px;margin-bottom:40px;color:#111}
+
+/* ABOUT */
+.about-text{font-size:1.1rem;color:#333;max-width:620px;margin-bottom:16px}
+.available-note{display:inline-flex;align-items:center;gap:8px;background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;padding:10px 16px;border-radius:6px;font-size:0.9rem;font-weight:600;margin-top:16px}
+.available-dot{width:8px;height:8px;border-radius:50%;background:#059669;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* EXPERIENCE */
+.exp-item{padding:28px 0;border-bottom:1px solid var(--line)}
+.exp-item:last-child{border-bottom:none}
+.exp-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:6px;flex-wrap:wrap}
+.exp-company{font-size:1.15rem;font-weight:800;color:#111}
+.exp-period{font-size:0.85rem;color:var(--muted);white-space:nowrap;padding-top:2px}
+.exp-role{color:var(--accent2);font-weight:600;font-size:0.95rem;margin-bottom:12px}
+.exp-desc{color:#555;font-size:0.95rem;margin-bottom:14px}
+.exp-list{list-style:none}
+.exp-list li{font-size:0.9rem;color:#444;padding:3px 0 3px 16px;position:relative}
+.exp-list li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:0.8rem}
+
+/* PROJECTS */
+.proj-item{padding:24px 0;border-bottom:1px solid var(--line);display:flex;gap:32px;align-items:flex-start}
+.proj-item:last-child{border-bottom:none}
+.proj-num{font-size:3rem;font-weight:900;color:var(--line);line-height:1;min-width:60px;padding-top:4px}
+.proj-body{flex:1}
+.proj-cat{font-size:0.75rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:4px}
+.proj-title{font-size:1.1rem;font-weight:800;color:#111;margin-bottom:8px}
+.proj-desc{font-size:0.9rem;color:#555;margin-bottom:12px}
+.proj-badge{display:inline-block;font-size:0.72rem;background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;padding:2px 8px;border-radius:10px;font-weight:700;margin-left:6px}
+
+/* SKILLS */
+.skill-group{margin-bottom:32px}
+.skill-group-name{font-size:0.8rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted);font-weight:700;margin-bottom:12px}
+.skill-pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{background:#fff;border:1.5px solid var(--line);color:#333;padding:6px 14px;border-radius:100px;font-size:0.85rem;font-weight:500;transition:.2s}
+.pill:hover{border-color:var(--accent);color:var(--accent)}
+.pill.strong{border-color:#111;color:#111;font-weight:700}
+
+/* EDUCATION */
+.edu-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.edu-school{font-size:1.1rem;font-weight:800;color:#111}
+.edu-deg{color:var(--muted);font-size:0.95rem;margin-top:4px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:32px 24px;max-width:760px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer p{color:var(--muted);font-size:0.85rem}
+</style>
+</head>
+<body>
+
+<div class="version-bar">
+  <a href="index.html">V1 · Navy Dark</a>
+  <a href="index-v2.html" class="active">V2 · Minimalist</a>
+  <a href="index-v3.html">V3 · Sidebar</a>
+  <a href="index-v4.html">V4 · Bold</a>
+</div>
+
+<div class="wrap">
+
+<div class="hero" style="padding-left:0;padding-right:0">
+  <p class="hero-tag">Portfolio · 2025</p>
+  <h1 id="h-name">Danijel<br><span>Ojdanić</span></h1>
+  <p class="hero-role" id="h-role"></p>
+  <div class="hero-links" id="h-links"></div>
+</div>
+
+<section id="about">
+  <p class="s-label">O meni</p>
+  <p class="about-text" id="about-text"></p>
+  <div class="available-note"><span class="available-dot"></span><span id="avail-note"></span></div>
+</section>
+
+<section id="experience">
+  <p class="s-label">Radno iskustvo</p>
+  <div id="exp-list"></div>
+</section>
+
+<section id="projects">
+  <p class="s-label">Projekti</p>
+  <div id="proj-list"></div>
+</section>
+
+<section id="skills">
+  <p class="s-label">Vještine</p>
+  <div id="skill-groups"></div>
+</section>
+
+<section id="education">
+  <p class="s-label">Obrazovanje</p>
+  <div id="edu-block"></div>
+</section>
+
+</div>
+
+<footer class="wrap">
+  <p id="footer-copy"></p>
+  <p>Dostupan za freelance</p>
+</footer>
+
+<script>
+const PROFILE={name:"Danijel Ojdanić",title:"Senior .NET Developer",subtitle:"ASP.NET Core | Backend Systems | APIs | SQL | 18 godina iskustva",email:"danijel.o@live.com",linkedin:"https://www.linkedin.com/in/danijel-ojdani%C4%87-77306786/",github:"https://github.com/ojdana",summary:"Senior software inženjer s 18 godina iskustva u razvoju web aplikacija i backend sistema baziranih na .NET tehnologijama. Fokus na ASP.NET, REST/SOAP API-jevima, SQL bazama podataka, autentikacijskim sistemima i poslovnim aplikacijama. Iskustvo u rješavanju kompleksnih problema, optimizaciji performansi i izgradnji čistih i održivih rješenja. Radim samostalno i u timovima, koristim Git-based workflow i moderne razvojne prakse.",availableForFreelance:true,freelanceNote:"Dostupan za freelance projekte: razvoj web aplikacija, ERP moduli, REST API-jevi, baze podataka, SQL optimizacija."};
+const EXPERIENCE=[{company:"Itineris doo Tuzla",role:"Senior Software Engineer",period:"Sep 2022 — danas",current:true,description:"Razvoj CMS/BPM sistema za institucije javne uprave.",highlights:["Modul fakturisanja, praćenje budžeta i ugovora","Loan Lead Management za mikrokreditne institucije","Citizen portal — 94 vrste e-usluga za Grad Gradiška","Migracija na ASP.NET Core .NET 9 + React 18 + TypeScript"],tech:["C#","ASP.NET MVC","ASP.NET Core","SQL Server","JavaScript","React","TypeScript","DevExpress"]},{company:"Spin doo Tuzla",role:"Senior Software Engineer",period:"Sep 2018 — Sep 2022",current:false,description:"ERP moduli za računovodstveni softver i samostalni projekti.",highlights:["POS kasa, stalna sredstva, transportna logistika","Loyalty club, SOAP/REST servisi","Fakturisanje, CRM, DMS, web integracije s Bingo/Zvorničanka"],tech:["C#","SQL Server","JavaScript","HTML","CSS","SOAP","REST API"]},{company:"Partner MKF",role:"Programmer / DBA",period:"Feb 2009 — Aug 2018",current:false,description:"Razvoj aplikacija i administracija Oracle baze u mikrokreditnoj instituciji.",highlights:["Oracle DBA: redundancija, sigurnost, optimizacija performansi","ASP.NET web aplikacije za interne poslovne procese","Analiza poslovnih procesa i kreiranje softverskih rješenja"],tech:["Oracle","PL/SQL","ASP.NET","C#","JavaScript"]}];
+const PROJECTS=[{title:"ItinerisWEB — CMS/BPM/ERP",category:"ERP / Javni sektor",type:"commercial",desc:"14+ modula, BPM workflow engine, AI Help sistem",tech:["C#","ASP.NET MVC","SQL Server","JavaScript","DevExpress"]},{title:"e-Gradjanin portal",category:"E-uprava",type:"commercial",desc:"94 e-usluge za Grad Gradiška, samouslužni sistem za građane",tech:["HTML","CSS","JavaScript","Azure SQL"]},{title:"CoreAPI + AdminPortal",category:"Modernizacija / React",type:"commercial",desc:"Migracija na ASP.NET Core .NET 9 + React 18 + TypeScript + Vite",tech:["ASP.NET Core","React","TypeScript","EF Core","JWT"]},{title:"Spinsoft ERP",category:"ERP / Maloprodaja",type:"commercial",desc:"23 modula: POS, logistika, loyalty, DMS, web integracije",tech:["C#","SQL Server","JavaScript"]},{title:"BalegemCMS",category:"Desktop ERP / Građevinarstvo",type:"freelance",desc:"6 modula: Gradilište, Magacin, Proizvodnja, TIM, Izvještaji",tech:["C#","WinForms","DevExpress","SQL Server"]},{title:"PRO_NALOZI",category:"Privatni",type:"freelance",desc:"Radni nalozi za štampariju s BPM workflow praćenjem",tech:["C#","ASP.NET MVC","SQL Server"]}];
+const SKILLS=[{cat:"Backend",strong:["C#","ASP.NET MVC","ASP.NET Core","SQL Server"],normal:["Entity Framework Core","REST API","SOAP","PL/SQL"]},{cat:"Frontend",strong:["JavaScript","jQuery","HTML5","CSS3"],normal:["Bootstrap","React","TypeScript"]},{cat:"ERP & BPM",strong:["BPM workflow","ERP arhitektura","Fakturisanje"],normal:["POS integracije","DMS","Loyalty sistemi"]},{cat:"Alati",strong:["Visual Studio","Git","SSMS"],normal:["DevExpress","Playwright","Azure","Vite"]}];
+const EDU=[{school:"Elektrotehnički fakultet",degree:"Diplomirani inženjer elektrotehnike — Informatika",period:"2002 — 2009"}];
+
+document.getElementById('h-role').textContent=PROFILE.subtitle;
+document.getElementById('h-links').innerHTML=`<a class="hero-link" href="mailto:${PROFILE.email}">${PROFILE.email}</a><a class="hero-link" href="${PROFILE.linkedin}" target="_blank">LinkedIn</a><a class="hero-link" href="${PROFILE.github}" target="_blank">GitHub</a>`;
+document.getElementById('about-text').textContent=PROFILE.summary;
+document.getElementById('avail-note').textContent=PROFILE.freelanceNote;
+document.getElementById('exp-list').innerHTML=EXPERIENCE.map(e=>`<div class="exp-item"><div class="exp-top"><div><span class="exp-company">${e.company}</span></div><span class="exp-period">${e.period}</span></div><div class="exp-role">${e.role}</div><p class="exp-desc">${e.description}</p><ul class="exp-list">${e.highlights.map(h=>`<li>${h}</li>`).join('')}</ul></div>`).join('');
+document.getElementById('proj-list').innerHTML=PROJECTS.map((p,i)=>`<div class="proj-item"><div class="proj-num">${String(i+1).padStart(2,'0')}</div><div class="proj-body"><div class="proj-cat">${p.category}${p.type==='freelance'?'<span class="proj-badge">Freelance</span>':''}</div><div class="proj-title">${p.title}</div><p class="proj-desc">${p.desc}</p><div style="display:flex;flex-wrap:wrap;gap:6px">${p.tech.map(t=>`<span style="font-size:0.78rem;color:#888;border:1px solid #e5e5e5;padding:2px 8px;border-radius:4px">${t}</span>`).join('')}</div></div></div>`).join('');
+document.getElementById('skill-groups').innerHTML=SKILLS.map(s=>`<div class="skill-group"><div class="skill-group-name">${s.cat}</div><div class="skill-pills">${s.strong.map(t=>`<span class="pill strong">${t}</span>`).join('')}${s.normal.map(t=>`<span class="pill">${t}</span>`).join('')}</div></div>`).join('');
+document.getElementById('edu-block').innerHTML=EDU.map(e=>`<div class="edu-row"><div><div class="edu-school">${e.school}</div><div class="edu-deg">${e.degree}</div></div><span style="color:#777;font-size:0.9rem">${e.period}</span></div>`).join('');
+document.getElementById('footer-copy').textContent=`© ${new Date().getFullYear()} Danijel Ojdanić`;
+</script>
+</body>
+</html>
